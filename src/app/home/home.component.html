@@ -1,0 +1,14 @@
+<div class="p-4" style="background-image: url('/assets/tolaa.png'); background-size: cover; background-position: center; height: 100vh; color: rgb(53, 85, 241);">
+    <div class="container">
+        
+        <h1>Hi {{account.firstName}} {{account.lastName}}!</h1>
+        <p>Welcome to the Clinica Appointment</p>
+        
+        <nav>
+            <a routerLink="/home/appointments" routerLinkActive="active">Appointments</a> |
+            <a routerLink="/home/reviews" routerLinkActive="active">Reviews</a>
+        </nav>
+
+        <router-outlet></router-outlet>
+    </div>
+</div>

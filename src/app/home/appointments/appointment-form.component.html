@@ -1,0 +1,79 @@
+<head>
+    <style>
+        /* Insert your CSS styles here */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>{{ isEdit ? 'Edit Appointment' : 'Add Appointment' }}</h2>
+        <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name">Name</label>
+                <input id="name" formControlName="name" type="text">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" type="email">
+            </div>
+            <div>
+                <label for="date">Date</label>
+                <input id="date" formControlName="date" type="date">
+            </div>
+            <div>
+                <label for="reason">Reason</label>
+                <textarea id="reason" formControlName="reason"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>

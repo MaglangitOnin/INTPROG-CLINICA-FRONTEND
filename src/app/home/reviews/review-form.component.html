@@ -1,0 +1,23 @@
+<h2>{{ isAddMode ? 'Add Review' : 'Edit Review' }}</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="rating">Rating</label>
+        <input type="number" formControlName="rating" class="form-control" [ngClass]="{'is-invalid': submitted && form.controls.rating.errors}">
+        <div *ngIf="submitted && form.controls.rating.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.rating.errors.required">Rating is required</div>
+            <div *ngIf="form.controls.rating.errors.min">Rating must be at least 1</div>
+            <div *ngIf="form.controls.rating.errors.max">Rating must be at most 5</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="feedback">Feedback</label>
+        <textarea formControlName="feedback" class="form-control" [ngClass]="{'is-invalid': submitted && form.controls.feedback.errors}"></textarea>
+        <div *ngIf="submitted && form.controls.feedback.errors" class="invalid-feedback">
+            <div *ngIf="form.controls.feedback.errors.required">Feedback is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-link" (click)="cancel()">Cancel</button>
+    </div>
+</form>

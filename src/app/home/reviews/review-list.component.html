@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Reviews</h2>
+    <button class="btn btn-primary" (click)="addReview()">Leave a review!</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Rating</th>
+                <th>Feedback</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let review of reviews">
+                <td>{{ review.rating }}</td>
+                <td>{{ review.feedback }}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="editReview(review.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteReview(review.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
